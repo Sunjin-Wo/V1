@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import logo from './Images/logo-skin.jpg';
 
-// Import components (we'll create these next)
+// Import components
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';

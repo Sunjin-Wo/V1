@@ -19,9 +19,27 @@ function Footer() {
           <div className="footer-social">
             <h4>Síguenos</h4>
             <div className="social-links">
-              <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a 
+                href="https://www.instagram.com/skinteam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <a 
+                href="https://www.facebook.com/skinteam" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+              <a 
+                href="https://wa.me/YOUR_WHATSAPP_NUMBER" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
           
