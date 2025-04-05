@@ -25,4 +25,236 @@
 .testimonial-card h4 {
   color: var(--primary);
   margin: 0;
+}
+
+.testimonials-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.testimonials-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 60px;
+  font-weight: 600;
+  position: relative;
+}
+
+.testimonials-container h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #00b894;
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+.testimonials-slider {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.testimonial-card {
+  padding: 20px;
+  outline: none !important;
+}
+
+.testimonial-content {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.testimonial-content::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 60px;
+  color: #00b894;
+  opacity: 0.1;
+  font-family: Georgia, serif;
+}
+
+.testimonial-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.stars {
+  margin-bottom: 25px;
+  color: #ffd700;
+  font-size: 22px;
+  display: flex;
+  gap: 5px;
+}
+
+.star {
+  transition: transform 0.2s ease;
+}
+
+.testimonial-content:hover .star {
+  transform: scale(1.1);
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 25px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.testimonial-author h3 {
+  color: #2d3436;
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.testimonial-author p {
+  color: #00b894;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Personalización de los controles del carrusel */
+.slick-prev,
+.slick-next {
+  width: 45px;
+  height: 45px;
+  background-color: white !important;
+  border-radius: 50%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: #00b894 !important;
+  transform: scale(1.1);
+}
+
+.slick-prev {
+  left: -10px;
+}
+
+.slick-next {
+  right: -10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #00b894 !important;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  color: white !important;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: #00b894;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testimonials-container h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .testimonial-content {
+    padding: 30px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .testimonials-slider {
+    padding: 20px;
+  }
+
+  .slick-prev {
+    left: -5px;
+  }
+
+  .slick-next {
+    right: -5px;
+  }
+}
+
+/* Animación de entrada para los testimonios */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-card {
+  animation: fadeInUp 0.6s ease-out forwards;
 } 
