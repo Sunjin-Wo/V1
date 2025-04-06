@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import './App.css';
 
 // Import components
@@ -11,6 +11,7 @@ import Partners from './components/Partners';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   useEffect(() => {
@@ -37,29 +38,34 @@ function App() {
         Saltar al contenido principal
       </a>
       
-      <Header />
-      
-      <main id="main-content">
-        <Hero />
-        <Services />
-        <AboutUs />
-        <Partners />
-        <Blog />
-        <Contact />
-        <Testimonials />
-      </main>
+      <ErrorBoundary>
+        <Header />
+        
+        <main id="main-content">
+          <Suspense fallback={<div className="loading">Cargando...</div>}>
+            <Hero />
+            <Services />
+            <AboutUs />
+            <Testimonials />
+            <Partners />
+            <Blog />
+            <Contact />
+          </Suspense>
+        </main>
 
-      <Footer />
+        <Footer />
 
-      <a 
-        href="https://wa.me/+573XXXXXXXXX"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-      >
-        <i className="fab fa-whatsapp"></i> Agenda tu cita
-      </a>
+        <a 
+          href="https://wa.me/+573XXXXXXXXX"
+          className="whatsapp-float"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar por WhatsApp"
+        >
+          <i className="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Agenda tu cita</span>
+        </a>
+      </ErrorBoundary>
     </div>
   );
 }
