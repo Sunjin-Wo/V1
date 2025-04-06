@@ -2,18 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logo from '../Images/logo-skin.jpg';
 
-// componente de navegacion principal
 function Header() {
-  // estado para controlar el menu movil
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // estado para controlar si el header es transparente
-  const [isTransparent, setIsTransparent] = useState(true);
 
-  // efecto para cambiar el header al hacer scroll
   useEffect(() => {
     const handleScroll = () => {
-      const isTop = window.scrollY < 100;
-      setIsTransparent(isTop);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -21,33 +16,39 @@ function Header() {
   }, []);
 
   return (
-    // header principal con clase dinamica segun scroll
-    <header className={`header ${isTransparent ? 'transparent' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        {/* logo de la empresa */}
-        <a href="/" className="logo">
-          <img src="/images/logo-skin.jpg" alt="SkinTeam Logo" />
-        </a>
+        <div className="header-content">
+          <a href="#inicio" className="logo">
+            <img src={logo} alt="SkinTeam Logo" />
+          </a>
 
-        {/* boton del menu movil */}
-        <button 
-          className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <button 
+            className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-        {/* navegacion principal */}
-        <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <ul>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#about">Sobre Nosotros</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-        </nav>
+          <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+            <ul>
+              <li><a href="#inicio" onClick={() => setIsMenuOpen(false)}>Inicio</a></li>
+              <li><a href="#servicios" onClick={() => setIsMenuOpen(false)}>Servicios</a></li>
+              <li><a href="#nosotros" onClick={() => setIsMenuOpen(false)}>Nosotros</a></li>
+              <li><a href="#testimonios" onClick={() => setIsMenuOpen(false)}>Testimonios</a></li>
+              <li><a href="#blog" onClick={() => setIsMenuOpen(false)}>Blog</a></li>
+              <li><a href="#contacto" onClick={() => setIsMenuOpen(false)}>Contacto</a></li>
+            </ul>
+          </nav>
+
+          <div className="auth-buttons">
+            <a href="#login" className="btn-auth btn-login">Iniciar Sesión</a>
+            <a href="#register" className="btn-auth btn-register">Registrarse</a>
+          </div>
+        </div>
       </div>
     </header>
   );
