@@ -1,53 +1,61 @@
 import React, { useState } from 'react';
 import './Services.css';
+// Importar las imágenes
+import consulta from '../Images/consulta.jpg';
+import armonizacion from '../Images/armonizacion.jpg';
+import procedimientos from '../Images/procedimientos.jpg';
+import ultraformer from '../Images/ultraformer.jpg';
 
 function Services() {
   const [selectedService, setSelectedService] = useState(null);
 
   const services = {
     consulta: {
-      title: "Dermatología Estética",
-      subtitle: "DERMATOLOGÍA ESTÉTICA",
-      description: "Evaluación especializada con diagnóstico preciso de condiciones cutáneas. Atención personalizada presencial y virtual.",
+      title: "Consulta",
+      subtitle: "Consulta Dermatológica",
+      image: consulta,
+      description: "Consulta especializada en dermatología",
       items: [
-        "Acné y manchas",
-        "Alopecia",
-        "Lunares y lesiones",
-        "Rosácea"
+        "Evaluación personalizada",
+        "Diagnóstico preciso",
+        "Plan de tratamiento",
+        "Seguimiento continuo"
       ]
     },
-    esteticos: {
-      title: "Dermatología Clínica",
-      subtitle: "DERMATOLOGÍA CLÍNICA",
-      description: "Tratamientos de última generación para realzar su belleza natural con resultados armoniosos y duraderos.",
+    armonizacion: {
+      title: "Armonización Facial",
+      subtitle: "Tratamientos Estéticos",
+      image: armonizacion,
+      description: "Procedimientos de armonización facial",
       items: [
-        "Toxina botulínica (Botox)",
-        "Rellenos con ácido hialurónico",
-        "Peelings médicos",
-        "Limpieza facial profunda",
-        "Plasma rico en plaquetas (PRP)",
-        "Rejuvenecimiento láser"
+        "Rellenos faciales",
+        "Toxina botulínica",
+        "Rejuvenecimiento",
+        "Perfilado facial"
+      ]
+    },
+    procedimientos: {
+      title: "Procedimientos",
+      subtitle: "Tratamientos Dermatológicos",
+      image: procedimientos,
+      description: "Diversos procedimientos dermatológicos",
+      items: [
+        "Tratamientos láser",
+        "Peeling químico",
+        "Microdermoabrasión",
+        "Tratamientos corporales"
       ]
     },
     ultraformer: {
-      title: "Dermatología Quirúrgica",
-      subtitle: "DERMATOLOGÍA QUIRÚRGICA",
-      description: "Tecnología avanzada de ultrasonido micro y macrofocalizado para rejuvenecimiento y reafirmación sin cirugía.",
+      title: "Ultraformer MPT",
+      subtitle: "Tecnología Avanzada",
+      image: ultraformer,
+      description: "Tratamiento con ultrasonido focalizado",
       items: [
-        "Piel más firme",
-        "Lifting sin bisturí",
-        "Resultados desde la primera sesión"
-      ]
-    },
-    pediatrica: {
-      title: "Dermatología Pediátrica",
-      subtitle: "DERMATOLOGÍA PEDIÁTRICA",
-      description: "Atención especializada en el cuidado de la piel de los más pequeños, con tratamientos seguros y efectivos.",
-      items: [
-        "Dermatitis atópica",
-        "Acné infantil",
-        "Alergias cutáneas",
-        "Nevus congénitos"
+        "Lifting no quirúrgico",
+        "Tensado facial",
+        "Remodelación corporal",
+        "Resultados duraderos"
       ]
     }
   };
@@ -64,14 +72,17 @@ function Services() {
           {Object.entries(services).map(([key, service]) => (
             <div key={key} className="service-card">
               <div className="service-content">
-                <h3>{service.title}</h3>
-                <p className="service-subtitle">{service.subtitle}</p>
+                <img src={service.image} alt={service.title} />
                 <button 
                   className="btn-ver-mas"
                   onClick={() => setSelectedService(key)}
                 >
                   Ver más
                 </button>
+              </div>
+              <div className="service-info">
+                <h3>{service.title}</h3>
+                <p className="service-subtitle">{service.subtitle}</p>
               </div>
             </div>
           ))}
