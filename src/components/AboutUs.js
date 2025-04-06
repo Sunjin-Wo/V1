@@ -8,36 +8,45 @@ import draCarolina from '../Images/Perfiles de Doctores/Perfil-Doctor-Carolina-P
 function AboutUs() {
   const doctors = [
     {
-      name: "Dra. Angela",
+      name: "Dra. Angela Rocío Hernández Arena",
       department: "DERMATOLOGÍA ESTÉTICA",
       image: draAngela,
-      facebook: "#",
-      twitter: "#",
-      instagram: "#"
+      role: "Médico CEO SkinTeam",
+      description: `Médica y Cirujana de la Pontificia Universidad Javeriana
+Ortopedista y Traumatóloga: Universidad El Bosque
+Apasionada por el servicio y mejorar la calidad de los pacientes principalmente por mi profesión.
+
+Este emprendimiento propio de más de 14 años me ha permitido entender que en SkinTeam creemos que cuidar la piel es cuidar el alma. Creé este centro para ayudarte a sentirte bien contigo, recuperar tu confianza y mejorar tu calidad de vida. ¡Porque cuando te ves bien, te sientes imparable!`
     },
     {
-      name: "Dra. Cristina Castrillon",
+      name: "Dra. Cristina Ángel Castrillón",
       department: "DERMATOLOGÍA CLÍNICA",
       image: draCristina,
-      facebook: "#",
-      twitter: "#",
-      instagram: "#"
+      description: `– Médica y cirujana de la Universidad de Antioquia
+– Diplomado en Medicina estética Euroinnova Business Center
+– Máster en nutrición y alimentación universidad de Barcelona`
     },
     {
-      name: "Dr. Manuel Santiago",
+      name: "Dr. Manuel Santiago Moreno Castro",
       department: "DERMATOLOGÍA QUIRÚRGICA",
       image: drManuel,
-      facebook: "#",
-      twitter: "#",
-      instagram: "#"
+      description: `– Médico Especialista en Dermatología de la Universidad ICESI de Cali.
+– ⁠Reconocido por el Colegio Iberoamericano de Dermatología como uno de los mejores médicos residentes de Colombia y destacados de Hispanoamérica.
+
+Apasionado por:
+– ⁠La salud el servicio y bienestar de la piel.
+– ⁠Viajar por Colombia y el mundo, y conocer diferentes lugares y culturas`
     },
     {
-      name: "Dra. Carolina Pinzon",
+      name: "Dra. Carolina Pinzón Rodríguez",
       department: "DERMATOLOGÍA PEDIÁTRICA",
       image: draCarolina,
-      facebook: "#",
-      twitter: "#",
-      instagram: "#"
+      description: `– Médico y cirujana general de la Fundación Universitaria Juan N. Corpas
+– Especialista en Epidemiología de la UNAB
+– Diplomado Medicina estética Universidad – FUCS
+– Diplomado en Nutriología – ACICME
+– Máster en medicina práctica clínica UDIMA- España
+– Mi principal hobbie es hacer ejercicio, principalmente running.`
     }
   ];
 
@@ -56,31 +65,15 @@ function AboutUs() {
             alt={doctor.name}
             loading="lazy"
           />
-          <div className={`social-links ${isHovered ? 'visible' : ''}`}>
-            <a 
-              href={doctor.facebook} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label={`Visita el perfil de Facebook de ${doctor.name}`}
-            >
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a 
-              href={doctor.twitter} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label={`Visita el perfil de Twitter de ${doctor.name}`}
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a 
-              href={doctor.instagram} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label={`Visita el perfil de Instagram de ${doctor.name}`}
-            >
-              <i className="fab fa-instagram"></i>
-            </a>
+          <div className={`info-overlay ${isHovered ? 'visible' : ''}`}>
+            <div className="doctor-details">
+              {doctor.role && <h4 className="doctor-role">{doctor.role}</h4>}
+              <div className="doctor-description">
+                {doctor.description.split('\n').map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         <div className="doctor-info">

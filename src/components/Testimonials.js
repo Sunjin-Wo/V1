@@ -1,75 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Testimonials.css';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-const Testimonials = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: true,
+function Testimonials() {
+  const [newComment, setNewComment] = useState('');
+  const [comments] = useState([
+    {
+      id: 1,
+      author: "María García",
+      content: "¡Excelente servicio! Los tratamientos son increíbles.",
+      likes: 15,
+      date: "2024-04-05"
+    },
+    {
+      id: 2,
+      author: "Juan Rodríguez",
+      content: "Me encantó la atención profesional y los resultados.",
+      likes: 8,
+      date: "2024-04-04"
+    },
+    {
+      id: 3,
+      author: "Ana Martínez",
+      content: "Recomiendo totalmente los servicios. ¡Muy satisfecha!",
+      likes: 12,
+      date: "2024-04-03"
+    }
+  ]);
+
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map(word => word[0])
+      .join('')
+      .toUpperCase();
   };
 
-  const testimonials = [
-    {
-      name: "María González",
-      role: "Cliente Regular",
-      text: "El servicio de SkinTeam ha transformado completamente mi rutina de cuidado de la piel. Los tratamientos son personalizados y los resultados son increíbles. ¡Mi piel nunca se había visto mejor!",
-      rating: 5
-    },
-    {
-      name: "Carlos Rodríguez",
-      role: "Cliente Corporativo",
-      text: "Como profesional que está constantemente en reuniones, mantener una imagen impecable es crucial. SkinTeam no solo me ha ayudado a lograr esto, sino que también me ha enseñado la importancia del cuidado de la piel.",
-      rating: 5
-    },
-    {
-      name: "Ana Martínez",
-      role: "Influencer de Belleza",
-      text: "He probado muchos servicios de estética, pero SkinTeam está en otro nivel. Su atención al detalle y el conocimiento profundo de los tratamientos más innovadores los hace únicos. ¡Los recomiendo totalmente!",
-      rating: 5
-    },
-    {
-      name: "Diego Morales",
-      role: "Deportista Profesional",
-      text: "Como deportista, mi piel sufre mucho por la exposición al sol y el sudor. El equipo de SkinTeam me ha ayudado a mantener mi piel saludable con tratamientos específicos para mis necesidades.",
-      rating: 5
-    }
-  ];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí iría la lógica para agregar el comentario
+    setNewComment('');
+  };
 
   return (
-    <section id="testimonios" className="testimonials-section">
+    <section className="testimonials-section">
       <div className="testimonials-container">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <div className="testimonials-slider">
-          <Slider {...settings}>
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card">
-                <div className="testimonial-content">
-                  <div className="stars">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="star">★</span>
-                    ))}
+        {/* Columna izquierda - Formulario de comentarios */}
+        <div className="testimonials-form-column">
+          <h2>Deja tu opinión</h2>
+          <form onSubmit={handleSubmit} className="testimonial-form">
+            <textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="¿Qué opinas de nuestro servicio?"
+              rows="4"
+            />
+            <button type="submit" className="submit-button">
+              Publicar
+            </button>
+          </form>
+        </div>
+
+        {/* Columna derecha - Lista de comentarios */}
+        <div className="testimonials-list-column">
+          <h2>Opiniones destacadas</h2>
+          <div className="testimonials-list">
+            {comments.map((comment) => (
+              <div key={comment.id} className="testimonial-card">
+                <div className="comment-header">
+                  <div className="avatar">
+                    {getInitials(comment.author)}
                   </div>
-                  <p className="testimonial-text">{testimonial.text}</p>
-                  <div className="testimonial-author">
-                    <h3>{testimonial.name}</h3>
-                    <p>{testimonial.role}</p>
+                  <div className="user-info">
+                    <strong>{comment.author}</strong>
+                    <span className="comment-date">
+                      {new Date(comment.date).toLocaleDateString('es-CO')}
+                    </span>
                   </div>
+                </div>
+                <blockquote className="testimonial-content">
+                  {comment.content}
+                </blockquote>
+                <div className="testimonial-actions">
+                  <button className="like-button">
+                    <span>👍</span> {comment.likes}
+                  </button>
+                  <button className="reply-button">
+                    Responder
+                  </button>
                 </div>
               </div>
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Testimonials; 

@@ -214,13 +214,19 @@ main {
   }
 
   .whatsapp-float {
-    bottom: 15px;
-    right: 15px;
-    padding: 8px 16px;
+    width: 120px;
+    height: 240px;
+    right: -60px;
+    padding-left: 20px;
   }
   
-  .whatsapp-float i {
-    font-size: 20px;
+  .whatsapp-float:hover {
+    right: -50px;
+  }
+
+  .whatsapp-float span {
+    font-size: 16px;
+    padding: 10px 6px;
   }
 }
 
@@ -231,6 +237,22 @@ main {
 
   .btn {
     padding: 10px 20px;
+  }
+
+  .whatsapp-float {
+    width: 100px;
+    height: 200px;
+    right: -50px;
+    padding-left: 15px;
+  }
+
+  .whatsapp-float:hover {
+    right: -40px;
+  }
+
+  .whatsapp-float span {
+    font-size: 14px;
+    padding: 8px 4px;
   }
 }
 
@@ -312,29 +334,106 @@ img {
   color: #4a5568;
 }
 
-/* WhatsApp floating button */
+/* WhatsApp semi-circle floating button */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50px;
-  padding: 10px 20px;
+  right: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-light);
+  width: 140px;
+  height: 280px;
+  border-radius: 140px 0 0 140px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: flex-start;
+  padding-left: 25px;
   text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 
+    -5px 0 20px rgba(196, 164, 132, 0.4),
+    -8px 0 30px rgba(196, 164, 132, 0.3),
+    -12px 0 40px rgba(196, 164, 132, 0.2);
   transition: all 0.3s ease;
   z-index: 1000;
+  animation: vibrate 3s infinite;
 }
 
 .whatsapp-float:hover {
-  background-color: #128c7e;
-  transform: translateY(-2px);
+  right: -60px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+  box-shadow: 
+    -8px 0 30px rgba(139, 115, 85, 0.5),
+    -12px 0 40px rgba(139, 115, 85, 0.4),
+    -16px 0 50px rgba(139, 115, 85, 0.3);
 }
 
-.whatsapp-float i {
-  font-size: 24px;
+.float-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-float span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  background: var(--primary-light);
+  padding: 12px 8px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover span {
+  background: var(--primary);
+  letter-spacing: 2px;
+}
+
+@keyframes vibrate {
+  0% { 
+    transform: translateY(-50%) rotate(0deg);
+    box-shadow: 
+      -5px 0 20px rgba(196, 164, 132, 0.4),
+      -8px 0 30px rgba(196, 164, 132, 0.3),
+      -12px 0 40px rgba(196, 164, 132, 0.2);
+  }
+  1% { 
+    transform: translateY(-50%) rotate(-3deg) scale(1.02);
+    box-shadow: 
+      -8px 0 25px rgba(196, 164, 132, 0.5),
+      -12px 0 35px rgba(196, 164, 132, 0.4),
+      -16px 0 45px rgba(196, 164, 132, 0.3);
+  }
+  2% { 
+    transform: translateY(-50%) rotate(3deg) scale(1.02);
+  }
+  3% { 
+    transform: translateY(-50%) rotate(-3deg) scale(1.02);
+  }
+  4% { 
+    transform: translateY(-50%) rotate(3deg) scale(1.02);
+  }
+  5% { 
+    transform: translateY(-50%) rotate(-3deg) scale(1.02);
+  }
+  6% { 
+    transform: translateY(-50%) rotate(0deg) scale(1);
+    box-shadow: 
+      -5px 0 20px rgba(196, 164, 132, 0.4),
+      -8px 0 30px rgba(196, 164, 132, 0.3),
+      -12px 0 40px rgba(196, 164, 132, 0.2);
+  }
+  100% { 
+    transform: translateY(-50%) rotate(0deg);
+    box-shadow: 
+      -5px 0 20px rgba(196, 164, 132, 0.4),
+      -8px 0 30px rgba(196, 164, 132, 0.3),
+      -12px 0 40px rgba(196, 164, 132, 0.2);
+  }
 }

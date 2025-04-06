@@ -63,8 +63,9 @@ function App() {
           rel="noopener noreferrer"
           aria-label="Contactar por WhatsApp"
         >
-          <i className="fab fa-whatsapp" aria-hidden="true"></i>
-          <span>Agenda tu cita</span>
+          <div className="float-content">
+            <span>Agenda tu cita</span>
+          </div>
         </a>
       </ErrorBoundary>
     </div>

@@ -1,6 +1,6 @@
 .footer {
-  background: linear-gradient(to bottom, var(--background-light), var(--primary));
-  color: var(--text-dark);
+  background: #111827;
+  color: #ffffff;
   padding: 80px 0 20px;
   position: relative;
   overflow: hidden;
@@ -12,10 +12,9 @@
   left: 0;
   width: 100%;
   height: 50px;
-  background: linear-gradient(45deg, var(--primary) 25%, transparent 25%) 0 50px,
-              linear-gradient(-45deg, var(--primary) 25%, transparent 25%) 0 50px;
+  background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%) 0 50px,
+              linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%) 0 50px;
   background-size: 20px 40px;
-  opacity: 0.1;
 }
 
 .footer-content {
@@ -28,34 +27,36 @@
 .footer-brand h3 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: var(--text-dark);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .footer-brand p {
-  color: var(--text-dark);
+  color: #e5e7eb;
   line-height: 1.6;
   margin-bottom: 30px;
 }
 
 .footer-schedule {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  backdrop-filter: blur(10px);
 }
 
 .footer-schedule h4 {
-  color: var(--text-dark);
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
 .footer-schedule p {
-  color: var(--text-dark);
+  color: #e5e7eb;
   margin: 5px 0;
 }
 
 .footer h4 {
-  color: var(--text-dark);
+  color: #ffffff;
   font-size: 1.2rem;
   margin-bottom: 25px;
   position: relative;
@@ -69,7 +70,7 @@
   bottom: -8px;
   width: 40px;
   height: 2px;
-  background: var(--secondary);
+  background: #a87d4f;
 }
 
 .footer-links ul {
@@ -78,7 +79,7 @@
 }
 
 .footer-links a {
-  color: var(--text-dark);
+  color: #e5e7eb;
   text-decoration: none;
   display: block;
   margin-bottom: 12px;
@@ -91,11 +92,11 @@
   content: '›';
   position: absolute;
   left: 0;
-  color: var(--secondary);
+  color: #a87d4f;
 }
 
 .footer-links a:hover {
-  color: var(--secondary);
+  color: #a87d4f;
   transform: translateX(5px);
 }
 
@@ -112,14 +113,16 @@
 }
 
 .contact-item i {
-  color: var(--secondary);
+  color: #a87d4f;
   font-size: 1.2rem;
   margin-top: 5px;
+  width: 20px;
+  text-align: center;
 }
 
 .contact-item p {
   margin: 0;
-  color: var(--text-dark);
+  color: #e5e7eb;
 }
 
 .social-links {
@@ -134,26 +137,33 @@
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: var(--text-light);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-links a:hover {
-  background: var(--secondary);
-  color: var(--text-light);
+  background: #a87d4f;
+  color: #ffffff;
   transform: translateY(-3px) rotate(8deg);
+  border-color: #a87d4f;
 }
 
+.social-links .fa-instagram { font-size: 1.6rem; }
+.social-links .fa-facebook-f { font-size: 1.3rem; }
+.social-links .fa-whatsapp { font-size: 1.6rem; }
+.social-links .fa-tiktok { font-size: 1.3rem; }
+
 .footer-bottom {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 30px;
   text-align: center;
-  color: var(--text-dark);
+  color: #e5e7eb;
 }
 
 .footer-bottom-links {
@@ -161,7 +171,7 @@
 }
 
 .footer-bottom-links a {
-  color: var(--text-dark);
+  color: #e5e7eb;
   text-decoration: none;
   margin: 0 15px;
   font-size: 0.9rem;
@@ -169,12 +179,11 @@
 }
 
 .footer-bottom-links a:hover {
-  color: var(--secondary);
+  color: #a87d4f;
 }
 
 .separator {
-  color: var(--text-dark);
-  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
