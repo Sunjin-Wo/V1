@@ -1,3 +1,4 @@
+/* estilos del footer */
 .footer {
   background: linear-gradient(to bottom, var(--background-light), var(--primary));
   color: var(--text-dark);
@@ -18,11 +19,17 @@
   opacity: 0.1;
 }
 
+/* contenido principal del footer */
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 50px;
   margin-bottom: 60px;
+}
+
+/* secciones del footer */
+.footer-brand {
+  padding: 0 1rem;
 }
 
 .footer-brand h3 {
@@ -72,6 +79,11 @@
   background: var(--secondary);
 }
 
+/* listas en el footer */
+.footer-links {
+  padding: 0 1rem;
+}
+
 .footer-links ul {
   list-style: none;
   padding: 0;
@@ -99,6 +111,7 @@
   transform: translateX(5px);
 }
 
+/* iconos de contacto */
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -122,6 +135,7 @@
   color: var(--text-dark);
 }
 
+/* redes sociales */
 .social-links {
   display: flex;
   gap: 20px;
@@ -149,6 +163,7 @@
   transform: translateY(-3px) rotate(8deg);
 }
 
+/* barra de copyright */
 .footer-bottom {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 30px;
@@ -177,6 +192,7 @@
   opacity: 0.5;
 }
 
+/* estilos responsive */
 @media (max-width: 768px) {
   .footer {
     padding: 60px 0 20px;

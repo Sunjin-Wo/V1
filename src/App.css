@@ -1,19 +1,24 @@
+/* variables globales */
 :root {
   /* Based on the logo colors */
   --primary: #C4A484;  /* Brown tone from logo */
+  --primary-light: #D4B494;
+  --primary-dark: #B49474;
   --secondary: #8B7355; /* Darker brown */
-  --text-dark: #333333;
-  --text-light: #ffffff;
-  --background-light: #f9f9f9;
+  --text-dark: #2C2C2C;
+  --text-light: #FFFFFF;
+  --text-secondary: #666666;
+  --background-light: #F9F9F9;
   
   /* Font weights */
   --font-light: 300;
   --font-regular: 400;
   --font-medium: 500;
   --font-semibold: 600;
-  --font-bold: 700;
+  --font-bold: 600;
 }
 
+/* estilos basicos */
 * {
   margin: 0;
   padding: 0;
@@ -21,12 +26,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* estilos del cuerpo de la pagina */
 body {
   font-family: 'Poppins', sans-serif;
   font-weight: var(--font-regular);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--text-dark);
   background-color: var(--background-light);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,102 +78,121 @@ a:hover {
   color: var(--secondary);
 }
 
+/* contenedor principal */
 .App {
   text-align: center;
-}
-
-/* WhatsApp floating button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50px;
-  padding: 10px 20px;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-  z-index: 1000;
+  flex-direction: column;
 }
 
-.whatsapp-float:hover {
-  background-color: #128c7e;
+/* contenedor de contenido principal */
+main {
+  flex: 1;
+  padding-top: 80px;
+}
+
+/* estilos de botones */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* boton primario */
+.btn-primary {
+  background: var(--primary);
+  color: var(--text-light);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
   transform: translateY(-2px);
 }
 
-.whatsapp-float i {
-  font-size: 24px;
+/* boton secundario */
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
-section {
-  padding: 80px 0;
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--text-light);
 }
 
+/* contenedor general */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Common button styles */
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--text-light);
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: var(--font-medium);
-  font-size: 1rem;
+/* titulos de secciones */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: var(--font-bold);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
 }
 
-.btn-primary:hover {
-  background-color: var(--secondary);
-  transform: translateY(-2px);
+/* subtitulos de secciones */
+.section-subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/* animaciones */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Responsive Design */
+/* clases de utilidad */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* estilos responsive */
 @media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -195,6 +221,16 @@ section {
   
   .whatsapp-float i {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
   }
 }
 
@@ -274,4 +310,31 @@ img {
   min-height: 200px;
   font-size: 1.2rem;
   color: #4a5568;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+}
+
+.whatsapp-float i {
+  font-size: 24px;
 }

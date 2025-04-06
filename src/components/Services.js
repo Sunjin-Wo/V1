@@ -7,9 +7,12 @@ import procedimientos from '../Images/procedimientos.jpg';
 import ultraformer from '../Images/ultraformer.jpg';
 
 function Services() {
+  // estado para controlar que servicio se muestra en el modal
   const [selectedService, setSelectedService] = useState(null);
 
+  // datos de los servicios
   const services = {
+    // servicio de consulta
     consulta: {
       title: "Consulta",
       subtitle: "Consulta Dermatológica",
@@ -22,6 +25,7 @@ function Services() {
         "Seguimiento continuo"
       ]
     },
+    // servicio de armonizacion facial
     armonizacion: {
       title: "Armonización Facial",
       subtitle: "Tratamientos Estéticos",
@@ -34,6 +38,7 @@ function Services() {
         "Perfilado facial"
       ]
     },
+    // servicio de procedimientos
     procedimientos: {
       title: "Procedimientos",
       subtitle: "Tratamientos Dermatológicos",
@@ -46,6 +51,7 @@ function Services() {
         "Tratamientos corporales"
       ]
     },
+    // servicio de ultraformer
     ultraformer: {
       title: "Ultraformer MPT",
       subtitle: "Tecnología Avanzada",
@@ -61,15 +67,19 @@ function Services() {
   };
 
   return (
+    // seccion principal de servicios
     <section id="servicios" className="services">
       <div className="container">
+        {/* cabecera de la seccion */}
         <div className="services-header">
           <h2 className="section-title">Nuestros Servicios</h2>
           <p className="section-subtitle">Soluciones dermatológicas integrales con los más altos estándares médicos</p>
         </div>
         
+        {/* grid de tarjetas de servicios */}
         <div className="services-grid">
           {Object.entries(services).map(([key, service]) => (
+            // tarjeta individual de servicio
             <div key={key} className="service-card">
               <div className="service-content">
                 <img src={service.image} alt={service.title} />
@@ -89,7 +99,7 @@ function Services() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* modal con detalles del servicio */}
       {selectedService && (
         <div className="modal-overlay" onClick={() => setSelectedService(null)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>

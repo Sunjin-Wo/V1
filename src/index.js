@@ -1,17 +1,19 @@
+// importamos las dependencias necesarias
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// creamos la raiz de la aplicacion
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// renderizamos la aplicacion
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// medicion de rendimiento
 reportWebVitals();

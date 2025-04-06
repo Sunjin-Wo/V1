@@ -1,14 +1,17 @@
+/* estilos generales de la seccion */
 .services {
   padding: 80px 0;
   background-color: #fff;
 }
 
+/* estilos del encabezado */
 .services-header {
   text-align: center;
   margin-bottom: 80px;
   position: relative;
 }
 
+/* gradiente decorativo del encabezado */
 .services-header::before {
   content: '';
   position: absolute;
@@ -20,6 +23,7 @@
   pointer-events: none;
 }
 
+/* contenedor principal */
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -27,6 +31,7 @@
   position: relative;
 }
 
+/* titulo de la seccion */
 .section-title {
   font-size: 2.75rem;
   color: var(--text-dark);
@@ -37,6 +42,7 @@
   text-align: center;
 }
 
+/* linea decorativa debajo del titulo */
 .section-title::after {
   content: '';
   position: absolute;
@@ -49,6 +55,7 @@
   border-radius: 2px;
 }
 
+/* subtitulo de la seccion */
 .section-subtitle {
   font-size: 1.1rem;
   color: var(--text-secondary);
@@ -57,6 +64,7 @@
   line-height: 1.8;
 }
 
+/* grid de servicios */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -64,6 +72,7 @@
   padding: 2rem;
 }
 
+/* animacion de entrada para las tarjetas */
 .services-grid > * {
   opacity: 0;
   transform: translateY(20px);
@@ -77,11 +86,13 @@
   }
 }
 
+/* retraso en la animacion para cada tarjeta */
 .services-grid > *:nth-child(1) { animation-delay: 0.1s; }
 .services-grid > *:nth-child(2) { animation-delay: 0.2s; }
 .services-grid > *:nth-child(3) { animation-delay: 0.3s; }
 .services-grid > *:nth-child(4) { animation-delay: 0.4s; }
 
+/* tarjeta de servicio */
 .service-card {
   position: relative;
   border-radius: 85% 15% 85% 15% / 15% 85% 15% 85%;
@@ -92,10 +103,12 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* efecto hover de la tarjeta */
 .service-card:hover {
   transform: translateY(-10px);
 }
 
+/* contenedor de la imagen */
 .service-content {
   position: relative;
   width: 100%;
@@ -103,6 +116,7 @@
   overflow: hidden;
 }
 
+/* imagen del servicio */
 .service-content img {
   width: 100%;
   height: 100%;
@@ -110,10 +124,12 @@
   transition: transform 0.3s ease;
 }
 
+/* efecto zoom en la imagen */
 .service-card:hover .service-content img {
   transform: scale(1.1);
 }
 
+/* informacion del servicio */
 .service-info {
   position: absolute;
   bottom: 0;
@@ -126,14 +142,12 @@
   transition: transform 0.3s ease;
 }
 
+/* mostrar info al hacer hover */
 .service-card:hover .service-info {
   transform: translateY(0);
 }
 
-.service-card:hover img {
-  transform: scale(1.1);
-}
-
+/* boton ver mas */
 .btn-ver-mas {
   position: absolute;
   top: 50%;
@@ -152,23 +166,26 @@
   letter-spacing: 1px;
 }
 
+/* mostrar boton al hacer hover */
 .service-card:hover .btn-ver-mas {
   opacity: 1;
 }
 
+/* titulo del servicio */
 .service-info h3 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
+/* subtitulo del servicio */
 .service-subtitle {
   margin: 0.5rem 0 0;
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
-/* Modal styles */
+/* estilos del modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -183,22 +200,23 @@
   backdrop-filter: blur(5px);
 }
 
+/* contenido del modal */
 .modal-content {
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   max-width: 500px;
   width: 90%;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* boton cerrar modal */
 .modal-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -206,29 +224,34 @@
   color: var(--primary-color);
 }
 
+/* lista de items en el modal */
 .modal-items {
   margin-top: 1.5rem;
 }
 
+/* item individual del modal */
 .modal-item {
   display: flex;
   align-items: center;
   margin: 0.5rem 0;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
+/* efecto hover en items del modal */
 .modal-item:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* punto decorativo en items */
 .modal-item-bullet {
   color: var(--primary-color);
-  margin-right: 0.8rem;
+  margin-right: 0.5rem;
   font-size: 1.2rem;
 }
 
+/* estilos responsive */
 @media (max-width: 1300px) {
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -274,7 +297,7 @@
 
   .modal-content {
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1.5rem;
   }
 }
 
@@ -284,7 +307,7 @@
   }
 
   .modal-content {
-    border-radius: 12px;
-    padding: 1.5rem;
+    border-radius: 15px;
+    padding: 1rem;
   }
 } 

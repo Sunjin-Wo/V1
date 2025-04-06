@@ -13,6 +13,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 
+// componente principal de la aplicacion
 function App() {
   useEffect(() => {
     // Lazy loading images
