@@ -50,12 +50,17 @@ Apasionado por:
     }
   ];
 
-  const DoctorCard = ({ doctor }) => {
+  const DoctorCard = ({ doctor, index }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const isEven = index % 2 === 0;
+
+    const formatDescription = (description) => {
+      return description.split('\n').filter(line => line.trim() !== '');
+    };
 
     return (
       <div 
-        className="doctor-card"
+        className={`doctor-card ${isEven ? 'info-right' : 'info-left'}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -67,10 +72,12 @@ Apasionado por:
           />
           <div className={`info-overlay ${isHovered ? 'visible' : ''}`}>
             <div className="doctor-details">
-              {doctor.role && <h4 className="doctor-role">{doctor.role}</h4>}
+              {doctor.role && (
+                <h4 className="doctor-role">{doctor.role}</h4>
+              )}
               <div className="doctor-description">
-                {doctor.description.split('\n').map((line, index) => (
-                  <p key={index}>{line}</p>
+                {formatDescription(doctor.description).map((line, index) => (
+                  <p key={index}>{line.trim()}</p>
                 ))}
               </div>
             </div>
@@ -100,7 +107,7 @@ Apasionado por:
       <div className="container">
         <div className="doctors-grid">
           {doctors.map((doctor, index) => (
-            <DoctorCard key={index} doctor={doctor} />
+            <DoctorCard key={index} doctor={doctor} index={index} />
           ))}
         </div>
       </div>
