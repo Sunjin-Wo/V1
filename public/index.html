@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#C4A484" />
+    <meta name="theme-color" content="#a87d4f" />
     <meta
       name="description"
       content="SkinTeam - Centro dermatológico en Bogotá. Especialistas en dermatología médica y estética. Tratamientos personalizados para el cuidado de tu piel."
@@ -42,6 +42,12 @@
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
     />
+    <!-- Precargar fuentes críticas -->
+    <link rel="preload" href="/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Poppins-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- Precargar CSS crítico -->
+    <link rel="preload" href="%PUBLIC_URL%/static/css/main.chunk.css" as="style" />
     <title>SkinTeam Dermatología | Centro Dermatológico en Bogotá</title>
   </head>
   <body>

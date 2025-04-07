@@ -1,38 +1,26 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import './App.css';
-
-// Import components
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import AboutUs from './components/AboutUs';
-import Testimonials from './components/Testimonials';
-import Partners from './components/Partners';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 
-// componente principal de la aplicacion
+// Lazy loading de componentes
+const Hero = lazy(() => import('./components/Hero'));
+const Services = lazy(() => import('./components/Services'));
+const AboutUs = lazy(() => import('./components/AboutUs'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const Partners = lazy(() => import('./components/Partners'));
+const Blog = lazy(() => import('./components/Blog'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="loading-skeleton">
+    <div className="skeleton-wave"></div>
+  </div>
+);
+
 function App() {
-  useEffect(() => {
-    // Lazy loading images
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.classList.add('loaded');
-            observer.unobserve(img);
-          }
-        });
-      });
-
-      lazyImages.forEach(img => imageObserver.observe(img));
-    }
-  }, []);
-
   return (
     <div className="App">
       <a href="#main-content" className="skip-link">
@@ -43,7 +31,7 @@ function App() {
         <Header />
         
         <main id="main-content" className="main-content">
-          <Suspense fallback={<div className="loading">Cargando...</div>}>
+          <Suspense fallback={<LoadingFallback />}>
             <Hero />
             <Services />
             <AboutUs />
@@ -54,7 +42,9 @@ function App() {
           </Suspense>
         </main>
 
-        <Footer />
+        <Suspense fallback={<LoadingFallback />}>
+          <Footer />
+        </Suspense>
 
         <a 
           href="https://wa.me/+573XXXXXXXXX"
