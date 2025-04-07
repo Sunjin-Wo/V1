@@ -13,10 +13,7 @@ function AboutUs() {
       image: draAngela,
       role: "Médico CEO SkinTeam",
       description: `Médica y Cirujana de la Pontificia Universidad Javeriana
-Ortopedista y Traumatóloga: Universidad El Bosque
-Apasionada por el servicio y mejorar la calidad de los pacientes principalmente por mi profesión.
-
-Este emprendimiento propio de más de 14 años me ha permitido entender que en SkinTeam creemos que cuidar la piel es cuidar el alma. Creé este centro para ayudarte a sentirte bien contigo, recuperar tu confianza y mejorar tu calidad de vida. ¡Porque cuando te ves bien, te sientes imparable!`
+Ortopedista y Traumatóloga: Universidad El Bosque`
     },
     {
       name: "Dra. Cristina Ángel Castrillón",
@@ -31,11 +28,7 @@ Este emprendimiento propio de más de 14 años me ha permitido entender que en S
       department: "DERMATOLOGÍA QUIRÚRGICA",
       image: drManuel,
       description: `– Médico Especialista en Dermatología de la Universidad ICESI de Cali.
-– ⁠Reconocido por el Colegio Iberoamericano de Dermatología como uno de los mejores médicos residentes de Colombia y destacados de Hispanoamérica.
-
-Apasionado por:
-– ⁠La salud el servicio y bienestar de la piel.
-– ⁠Viajar por Colombia y el mundo, y conocer diferentes lugares y culturas`
+– ⁠Reconocido por el Colegio Iberoamericano de Dermatología como uno de los mejores médicos residentes de Colombia y destacados de Hispanoamérica.`
     },
     {
       name: "Dra. Carolina Pinzón Rodríguez",
@@ -45,13 +38,13 @@ Apasionado por:
 – Especialista en Epidemiología de la UNAB
 – Diplomado Medicina estética Universidad – FUCS
 – Diplomado en Nutriología – ACICME
-– Máster en medicina práctica clínica UDIMA- España
-– Mi principal hobbie es hacer ejercicio, principalmente running.`
+– Máster en medicina práctica clínica UDIMA- España`
     }
   ];
 
   const DoctorCard = ({ doctor, index }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
     const isEven = index % 2 === 0;
 
     const formatDescription = (description) => {
@@ -65,10 +58,14 @@ Apasionado por:
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="doctor-image">
+          <div className={`image-placeholder ${imageLoaded ? 'hidden' : ''}`}>
+            <div className="loading-spinner"></div>
+          </div>
           <img 
             src={doctor.image} 
             alt={doctor.name}
-            loading="lazy"
+            onLoad={() => setImageLoaded(true)}
+            className={imageLoaded ? 'loaded' : ''}
           />
           <div className={`info-overlay ${isHovered ? 'visible' : ''}`}>
             <div className="doctor-details">
