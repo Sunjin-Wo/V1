@@ -12,18 +12,18 @@ function Hero() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 700,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     fade: false,
-    cssEase: 'ease-out',
+    cssEase: 'linear',
     arrows: true,
     pauseOnHover: true,
-    lazyLoad: 'progressive',
     swipeToSlide: true,
-    touchThreshold: 10
+    touchThreshold: 10,
+    slide: 'div'
   };
 
   return (

@@ -1,26 +1,15 @@
 /* estilos generales de la seccion */
 .services {
   padding: 80px 0;
-  background-color: #fff;
+  background-color: #ffffff;
+  color: #111827;
 }
 
 /* estilos del encabezado */
 .services-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   position: relative;
-}
-
-/* gradiente decorativo del encabezado */
-.services-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  background: linear-gradient(180deg, rgba(196, 164, 132, 0.1) 0%, transparent 100%);
-  pointer-events: none;
 }
 
 /* contenedor principal */
@@ -34,9 +23,9 @@
 /* titulo de la seccion */
 .section-title {
   font-size: 2.75rem;
-  color: var(--text-dark);
-  font-weight: var(--font-bold);
-  margin-bottom: 30px;
+  color: #111827;
+  font-weight: 600;
+  margin-bottom: 20px;
   position: relative;
   padding-bottom: 20px;
   text-align: center;
@@ -50,15 +39,15 @@
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
-  height: 4px;
-  background: var(--primary);
+  height: 3px;
+  background: #a87d4f;
   border-radius: 2px;
 }
 
 /* subtitulo de la seccion */
 .section-subtitle {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #4b5563;
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.8;
@@ -97,97 +86,75 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   aspect-ratio: 1;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(196, 164, 132, 0.2);
 }
 
 .service-content {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .service-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.4s ease;
-  filter: brightness(0.9);
+  transition: transform 0.4s ease;
 }
 
-.service-card:hover .service-content img {
-  filter: brightness(0.7);
-}
-
-.service-info {
+.service-overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 2rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   color: white;
-  transform: translateY(0);
+  opacity: 1;
   transition: all 0.4s ease;
-  opacity: 0;
-  visibility: hidden;
 }
 
-.service-card:hover .service-info {
-  opacity: 1;
-  visibility: visible;
+.service-overlay h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.service-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
 }
 
 .btn-ver-mas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1rem 2rem;
-  background-color: var(--primary);
+  background-color: #a87d4f;
   color: white;
   border: none;
+  padding: 0.8rem 1.5rem;
   border-radius: 30px;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.4s ease;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.service-card:hover .btn-ver-mas {
-  opacity: 1;
+  align-self: flex-start;
 }
 
 .btn-ver-mas:hover {
   background-color: white;
-  color: var(--primary);
-  transform: translate(-50%, -50%) scale(1.05);
-}
-
-.service-info h3 {
-  margin: 0;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.service-subtitle {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.9;
-  font-weight: 400;
+  color: #a87d4f;
 }
 
 /* estilos del modal */
@@ -197,7 +164,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,13 +175,11 @@
 /* contenido del modal */
 .modal-content {
   background: white;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 20px;
   max-width: 500px;
   width: 90%;
   position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
 }
 
 /* boton cerrar modal */
@@ -224,21 +189,34 @@
   right: 1rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: var(--primary-color);
+  color: #a87d4f;
+}
+
+.modal-content h3 {
+  color: #111827;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
 }
 
 /* lista de items en el modal */
 .modal-items {
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 /* item individual del modal */
 .modal-item {
   display: flex;
   align-items: center;
-  margin: 0.5rem 0;
+  color: #4b5563;
   padding: 0.5rem;
   border-radius: 8px;
   transition: background-color 0.3s ease;
@@ -246,73 +224,34 @@
 
 /* efecto hover en items del modal */
 .modal-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #f3f4f6;
 }
 
 /* punto decorativo en items */
 .modal-item-bullet {
-  color: var(--primary-color);
-  margin-right: 0.5rem;
+  color: #a87d4f;
+  margin-right: 1rem;
   font-size: 1.2rem;
 }
 
 /* estilos responsive */
-@media (max-width: 1300px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-  }
-}
-
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .services {
-    padding: 80px 0;
   }
 }
 
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 1rem;
   }
 
   .section-title {
     font-size: 2.2rem;
-    margin-bottom: 25px;
   }
 
-  .section-subtitle {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .service-card {
-    border-radius: 25px;
-  }
-
-  .modal-content {
-    border-radius: 15px;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-card {
-    border-radius: 15px;
-  }
-
-  .modal-content {
-    border-radius: 15px;
-    padding: 1rem;
+  .service-overlay h3 {
+    font-size: 1.5rem;
   }
 } 

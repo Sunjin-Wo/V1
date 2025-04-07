@@ -42,7 +42,7 @@ function App() {
       <ErrorBoundary>
         <Header />
         
-        <main id="main-content">
+        <main id="main-content" className="main-content">
           <Suspense fallback={<div className="loading">Cargando...</div>}>
             <Hero />
             <Services />

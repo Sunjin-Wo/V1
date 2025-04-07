@@ -1,56 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import logo from '../Images/logo-skin.jpg';
+import Login from './Login';
+import Register from './Register';
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container">
-        <div className="header-content">
-          <a href="#inicio" className="logo">
-            <img src={logo} alt="SkinTeam Logo" />
+    <>
+      <header className="header">
+        <div className="logo-container">
+          <a href="#inicio">
+            <img src={logo} alt="SkinTeam Logo" className="logo" />
           </a>
-
-          <button 
-            className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-            <ul>
-              <li><a href="#inicio" onClick={() => setIsMenuOpen(false)}>Inicio</a></li>
-              <li><a href="#servicios" onClick={() => setIsMenuOpen(false)}>Servicios</a></li>
-              <li><a href="#nosotros" onClick={() => setIsMenuOpen(false)}>Nosotros</a></li>
-              <li><a href="#testimonios" onClick={() => setIsMenuOpen(false)}>Testimonios</a></li>
-              <li><a href="#blog" onClick={() => setIsMenuOpen(false)}>Blog</a></li>
-              <li><a href="#contacto" onClick={() => setIsMenuOpen(false)}>Contacto</a></li>
-            </ul>
-          </nav>
-
-          <div className="auth-buttons">
-            <a href="#login" className="btn-auth btn-login">Iniciar Sesión</a>
-            <a href="#register" className="btn-auth btn-register">Registrarse</a>
-          </div>
         </div>
-      </div>
-    </header>
+
+        <nav className="nav-menu">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div className="auth-buttons">
+          <button 
+            className="btn-login"
+            onClick={() => setShowLogin(true)}
+          >
+            Iniciar Sesión
+          </button>
+          <button 
+            className="btn-register"
+            onClick={() => setShowRegister(true)}
+          >
+            Registrarse
+          </button>
+        </div>
+      </header>
+
+      {showLogin && <Login onClose={() => setShowLogin(false)} />}
+      {showRegister && <Register onClose={() => setShowRegister(false)} />}
+    </>
   );
 }
 

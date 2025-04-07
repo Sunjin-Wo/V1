@@ -84,6 +84,8 @@ a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* contenedor de contenido principal */
@@ -436,4 +438,9 @@ img {
       -8px 0 30px rgba(196, 164, 132, 0.3),
       -12px 0 40px rgba(196, 164, 132, 0.2);
   }
+}
+
+.main-content {
+  padding-top: 70px; /* Altura del header */
+  width: 100%;
 }

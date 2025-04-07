@@ -14,8 +14,8 @@ function Services() {
   const services = {
     // servicio de consulta
     consulta: {
-      title: "Consulta",
-      subtitle: "Consulta Dermatológica",
+      title: "Consulta Dermatológica",
+      subtitle: "Evaluación Especializada",
       image: consulta,
       description: "Consulta especializada en dermatología",
       items: [
@@ -83,16 +83,16 @@ function Services() {
             <div key={key} className="service-card">
               <div className="service-content">
                 <img src={service.image} alt={service.title} />
-                <button 
-                  className="btn-ver-mas"
-                  onClick={() => setSelectedService(key)}
-                >
-                  Ver más
-                </button>
-              </div>
-              <div className="service-info">
-                <h3>{service.title}</h3>
-                <p className="service-subtitle">{service.subtitle}</p>
+                <div className="service-overlay">
+                  <h3>{service.title}</h3>
+                  <p>{service.subtitle}</p>
+                  <button 
+                    className="btn-ver-mas"
+                    onClick={() => setSelectedService(key)}
+                  >
+                    Ver más
+                  </button>
+                </div>
               </div>
             </div>
           ))}

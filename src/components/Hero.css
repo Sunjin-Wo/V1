@@ -2,7 +2,6 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .hero-slider {
@@ -11,7 +10,6 @@
 
 .slide-container {
   height: 100vh;
-  transform: translate3d(0, 0, 0);
 }
 
 .slide {
@@ -20,7 +18,6 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  transform: translate3d(0, 0, 0);
 }
 
 .slide::before {
@@ -45,8 +42,6 @@
   width: 90%;
   max-width: 800px;
   padding: 0 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
 }
 
 .slide-content h1 {
@@ -116,18 +111,6 @@
 .slick-next:before {
   font-size: 40px;
   opacity: 0.75;
-  transition: opacity 0.3s ease;
-}
-
-.slick-prev:hover:before,
-.slick-next:hover:before {
-  opacity: 1;
-}
-
-/* Animación para el contenido */
-.slick-active .slide-content {
-  opacity: 1;
-  transform: translate(-50%, -50%);
 }
 
 /* Responsive */
