@@ -45,18 +45,6 @@ function App() {
         <Suspense fallback={<LoadingFallback />}>
           <Footer />
         </Suspense>
-
-        <a 
-          href="https://wa.me/+573XXXXXXXXX"
-          className="whatsapp-float"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contactar por WhatsApp"
-        >
-          <div className="float-content">
-            <span>Agenda tu cita</span>
-          </div>
-        </a>
       </ErrorBoundary>
     </div>
   );

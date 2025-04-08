@@ -6,15 +6,10 @@ function Footer() {
     <footer className="new-footer">
       <div className="footer-container">
         <div className="footer-grid">
-          {/* Sección de la marca */}
+          {/* Sección de la marca y enlaces rápidos */}
           <div className="footer-section">
             <h2>SkinTeam</h2>
             <p>Cuidamos tu piel con la mejor tecnología y profesionales expertos en dermatología estética.</p>
-          </div>
-
-          {/* Sección de enlaces */}
-          <div className="footer-section">
-            <h3>Enlaces Rápidos</h3>
             <ul>
               <li><a href="#inicio">Inicio</a></li>
               <li><a href="#servicios">Servicios</a></li>
